@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>RevealJS : d:\revealjs\wai-arai\markdown.md</title>
+        <title>RevealJS : d:\revealjs\wai-aria\markdown.md</title>
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/black.css" id="theme">
         
@@ -56,10 +56,10 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 리치 인터넷 애플리케이션의 약자 <br />(Rich Internet Application; RIA)
 
-<small>웹 애플리케이션의 장점은 유지하면서 기존 웹 브라우저 기반 인터페이스의 단점인 늦은 응답 속도, 데스크톱 애플리케이션에 비해 떨어지는 조작성 등을 개선하기 위한 기술의 통칭</small> <!-- .element: class="fragment fade-up" -->
+<small>웹 애플리케이션의 장점은 유지하면서<br />기존 웹 브라우저 기반 인터페이스의 단점인<br />늦은 응답 속도, 데스크톱 애플리케이션에 비해 떨어지는 조작성 등을<br />개선하기 위한 기술의 통칭</small> <!-- .element: class="fragment fade-up" -->
 </script></section><section data-markdown><script type="text/template">
 
-<a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank"><img src='/image/aria_01.jpg' alt='W3C wai aria page' /></a>
+<a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank"><img src='../image/aria_01.jpg' alt='W3C wai aria page' /></a>
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 
@@ -131,7 +131,7 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 #### As-is
 
-<pre><code data-trim data-noescape style="font-weight:bold">&lt;ul&gt;
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;ul&gt;
 	&lt;li id="tab1" tabindex="0"&gt;첫번째&lt;/li&gt;
 	&lt;li id="tab2" tabindex="0"&gt;두번째&lt;/li&gt;
 &lt;/ul&gt;
@@ -142,8 +142,8 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 	두번째 탭 내용입니다.
 &lt;/div&gt;</code></pre>
 
-스크린리더기 출력내용 <!-- .element: class="fragment fade-up" -->
-<pre class="fragment">목록 항목 수 2개
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">목록 항목 수 2개
 <mark>클릭 가능</mark>
 첫번째
 <mark>클릭 가능</mark>
@@ -153,19 +153,19 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 #### To-be
 
-<pre><code data-trim data-noescape style="font-weight:bold">&lt;ul <span class="fragment">role="tablist"</span>&gt;
-	&lt;li id="tab1" tabindex="0" <span class="fragment">role="tab" aria-controls="panel1" aria-selected="true"</span>&gt;첫번째&lt;/li&gt;
-	&lt;li id="tab2" tabindex="0" <span class="fragment">role="tab" aria-controls="panel2" aria-selected="false"</span>&gt;두번째&lt;/li&gt;
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;ul <span class="fragment">role="tablist"</span>&gt;
+	&lt;li id="tab1" tabindex="0" <span class="fragment">role="tab" aria-controls="<mark>panel1</mark>" aria-selected="true"</span>&gt;첫번째&lt;/li&gt;
+	&lt;li id="tab2" tabindex="0" <span class="fragment">role="tab" aria-controls="<mark>panel2</mark>" aria-selected="false"</span>&gt;두번째&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div id="panel1" <span class="fragment">role="tabpanel" aria-labelledby="tab1"</span>&gt;
+&lt;div id="<mark>panel1</mark>" <span class="fragment">role="tabpanel" aria-labelledby="tab1"</span>&gt;
 	첫번째 탭 내용입니다.
 &lt;/div&gt;
-&lt;div id="panel2" <span class="fragment">role="tabpanel" aria-labelledby="tab2"</span>&gt;
+&lt;div id="<mark>panel2</mark>" <span class="fragment">role="tabpanel" aria-labelledby="tab2"</span>&gt;
 	두번째 탭 내용입니다.
 &lt;/div&gt;</code></pre>
 
-스크린리더기 출력내용 <!-- .element: class="fragment fade-up" -->
-<pre class="fragment"><mark>탭 선택됨</mark>
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;"><mark>탭 선택됨</mark>
 첫번째
 <mark>탭</mark>
 두번째
@@ -174,9 +174,285 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 ### layer popup
 
-알럿 (role="alert")
+대화상자 (role="dialog")
 
 <img src="/markdown-export/image/layerpopup.jpg" alt="layer popup" />
+</script></section><section data-markdown><script type="text/template">
+
+#### As-is
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;div&gt;&lt;a href="#"&gt;링크1&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크2&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크3&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;
+	&lt;a href="#" id="layer_open_before"&gt;팝업창열기&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="layer_area_before" id="layer_before"&gt;
+	&lt;h1 id="dialogTitle_before" tabindex="0"&gt;레이어팝업&lt;/h1&gt;
+		&lt;ol&gt;
+			&lt;li&gt;팝업창에 포커스이동&lt;/li&gt;
+			&lt;li&gt;탭키 사용시 순환적 이동&lt;/li&gt;
+			&lt;li&gt;ESC키/닫기버튼 사용시 팝업종료&lt;/li&gt;
+			&lt;li&gt;팝업종료시 포커스 이동&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;div&gt;
+	&lt;input type="button" value="닫기" id="layer_close_before"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크4&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크5&lt;/a&gt;&lt;/div&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">목록 항목 수 2개
+링크1
+방문함 링크
+링크2
+방문함 링크
+링크3
+방문함 링크
+팝업창열기
+방문함 링크
+
+<small> /***** 팝업창 열림 *****/ </small>
+레이어팝업
+헤딩 레벨 1
+닫기
+버튼
+
+<small> /***** 팝업이 열린상태에서 다음링크로 이동 *****/ </small>
+링크4
+방문함 링크
+링크5
+방문함 링크</pre>
+</script></section><section data-markdown><script type="text/template">
+
+#### To-be
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;div&gt;&lt;a href="#"&gt;링크1&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크2&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크3&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;
+	&lt;a href="#" id="layer_open"&gt;팝업창열기&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="layer_area" id="layer" 
+	<span class="fragment">role="dialog" aria-hidden="true" aria-labelledby="<mark>dialogTitle</mark>"</span>&gt;
+        &lt;h1 id="<mark>dialogTitle</mark>" tabindex="0"&gt;레이업 팝업&lt;/h1&gt;
+	&lt;ol&gt;
+		&lt;li&gt;팝업창에 포커스이동&lt;/li&gt;
+		&lt;li&gt;탭키 사용시 순환적 이동&lt;/li&gt;
+		&lt;li&gt;팝업종료시 포커스 이동&lt;/li&gt;
+	&lt;/ol&gt;
+	&lt;input type="button" value="닫기" id="layer_close"&gt;
+    &lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크4&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href="#"&gt;링크5&lt;/a&gt;&lt;/div&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">링크1
+링크
+링크2
+링크
+링크3
+링크
+팝업창열기
+링크
+
+<small>/*****  팝업창 열림 *****/ </small>
+<mark>레이업 팝업  대화상자</mark>
+
+<small>/*****  팝업내용 읽기 *****/ </small>
+레이업 팝업
+헤딩  레벨 1
+레이업 팝업
+헤딩  레벨 1
+레이업 팝업
+목록  항목 수 3개
+팝업창에 포커스이동
+탭키 사용시 순환적 이동
+팝업종료시 포커스 이동
+목록 끝
+버튼
+닫기
+
+<small>/*****  탭키로 닫기버튼 이동 *****/ </small>
+닫기
+버튼
+
+<small>/*****  탭키로 다음 이동시 다시 레이어팝업 안에있는 컨텐츠로 이동 *****/ </small>
+레이업 팝업
+헤딩  레벨 1
+
+<small>/*****  탭키로 닫기버튼 이동 후 엔터 *****/ </small>
+닫기
+버튼
+
+<small>/*****  기존 링크로 돌아옴 *****/ </small>
+링크
+팝업창열기
+링크4
+링크
+링크5
+링크</pre>
+</script></section><section data-markdown><script type="text/template">
+
+### keyboard interface
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">$('#layer_close').keydown(function(e){
+	var keyCode = e.keyCode || e.which;
+	if (e.shiftKey && keyCode == 9 ) { //shift+tab 키
+		$(this).prev().focus();//이전 링크로 커서이동
+	}else if(keyCode == 9){//탭키
+		e.preventDefault();//탭키의 기본기능 삭제
+		$('#layer h1').focus();//첫번째 링크로 이동
+	}
+});</code></pre>
+
+키보드 초점을 대화상자 내부 첫 번째 콘트롤(레이업 팝업 헤딩  레벨 1)으로 이동
+
+대화상자를 표시하는 동안 초점은 대화상자 안에서 벗어나지 않게 처리
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+### ID/PASSWORD
+
+추가적인 설명문 제공<br />
+(aria-describedby=" ID reference list ")
+
+<img src="/markdown-export/image/idpasswd.jpg" alt="id / password" />
+</script></section><section data-markdown><script type="text/template">
+
+#### As-is
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;div&gt;
+	&lt;div class="id"&gt;
+		&lt;label for="fname"&gt;ID&lt;/label&gt;
+		&lt;input type="text" id="fname"&gt;
+		&lt;div id="idcommt"&gt;5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용 가능합니다.&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="pw"&gt;
+		&lt;label for="pwpw"&gt;PW&lt;/label&gt;
+		&lt;input type="password" id="pwpw"&gt;
+		&lt;div id="pwcommt"&gt;6~16자 영문 대 소문자, 숫자, 특수문자를 사용하여 입력해 주세요.&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">ID  편집창
+빈줄
+PW  편집창  보호됨
+빈줄</pre>
+</script></section><section data-markdown><script type="text/template">
+
+#### To-be
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;div class="id"&gt;
+	&lt;label for="fname2"&gt;ID&lt;/label&gt;
+	&lt;input type="text" id="fname2" <span class="fragment">aria-describedby="<mark>idcommt2<mark></span>"&gt;
+	&lt;div id="<mark>idcommt2</mark>"&gt;5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용 가능합니다.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="pw"&gt;
+	&lt;label for="pwpw2"&gt;PW&lt;/label&gt;
+	&lt;input type="password" id="pwpw2" <span class="fragment">aria-describedby="<mark>pwcommt2</mark></span>"&gt;
+	&lt;div id="<mark>pwcommt2</mark>"&gt;6~16자 영문 대 소문자, 숫자, 특수문자를 사용하여 입력해 주세요.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;"><small>/*****  ID관련 메세지 안내 *****/ </small>
+ID  편집창  <mark>5~20자의 영문 소문자, 숫자와 특수기호(_), (-)만 사용 가능합니다.</mark>
+빈줄
+<small>/*****  PW관련 메세지 안내 *****/ </small>
+PW  편집창  보호됨  <mark>6~16자 영문 대 소문자, 숫자, 특수문자를 사용하여 입력해 주세요.</mark>
+빈줄</pre>
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+### form label
+
+실시간 (aria-live=" polite ")
+
+<img src="/markdown-export/image/form.jpg" alt="form label" />
+</script></section><section data-markdown><script type="text/template">
+
+#### As-is
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;form method="post" id="demo_register_form_noaria" novalidate&gt;
+	&lt;!-- 레이블 --&gt;
+	&lt;label for="register_id_noaria" class="control-label"&gt;아이디&lt;/label&gt;
+	&lt;!-- 입력 시 알아야 할 정보 --&gt;
+	&lt;span id="id_info_noaria" class="text-info"&gt;영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.&lt;/span&gt;
+	&lt;!-- 사용자 입력 필드 --&gt;
+	&lt;input class="form-control" type="text" name="register_id_noaria" id="register_id_noaria" ..&gt;
+	&lt;!-- 사용자 입력 정보가 유효하지 않을 경우, 화면에 표시하고 읽어 줄 주의 정보 --&gt;
+	&lt;span id="id_error_noaria" class="help-block"&gt;&lt;/span&gt;
+&lt;/form&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.
+아이디
+
+<small>/*****  키보드 한/영 변경 *****/ </small>
+영어
+<small>/*****  키보드 입력 *****/ </small>
+t
+e
+s
+t
+<small>/*****  키보드 한/영 변경 *****/ </small>
+한글
+<small>/*****  키보드 입력 *****/ </small>
+테
+스
+트
+<small>/*****  특수문자 입력 *****/ </small>
+!</pre>
+</script></section><section data-markdown><script type="text/template">
+
+#### To-be
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;form method="post" id="demo_register_form" novalidate <span class="fragment">aria-live="polite</span>"&gt;
+	&lt;!-- 레이블 --&gt;
+	&lt;label for="register_id" class="control-label"&gt;아이디&lt;/label&gt;
+	&lt;!-- 입력 시 알아야 할 정보 --&gt;
+	&lt;span id="id_info" class="text-info"&gt;영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.&lt;/span&gt;
+	&lt;!-- 사용자 입력 필드 --&gt;
+	&lt;input class="form-control" type="text" name="register_id" id="register_id"
+		<span class="fragment">aria-describedby="id_info/id_error"
+		aria-required="true"
+		aria-invalid="false/true"</span>
+		..
+		&gt;
+	&lt;!-- 사용자 입력 정보가 유효하지 않을 경우, 화면에 표시하고 읽어 줄 주의 정보 --&gt;
+	&lt;span role="alert" id="id_error" class="help-block"&gt;&lt;/span&gt;
+&lt;/form&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">아이디  편집창  필요함  영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.
+
+<small>/*****  키보드 한/영 변경 *****/ </small>
+영어
+
+<small>/*****  입력문구 알림 *****/ </small>
+<mark>영문자, 숫자, _만 입력 가능(최소 3자)</mark>
+t
+e
+s
+t
+
+<small>/*****  키보드 한/영 변경 *****/ </small>
+한글
+
+테
+<small>/*****  입력문구 알림 *****/ </small>
+<mark>한글이 포함되면 안됨 </mark>
+스
+트
+
+!
+<small>/*****  입력문구 알림 *****/ </small>
+<mark>특수 문자는 _ 만 가능. (#,@,!,$,%,^,&,*,<,>,(,),-,=,+ 사용하면 안됨) </mark></pre>
+</script></section></section><section ><section data-markdown><script type="text/template">
+
+### 이미지형 게시판
+
+의미 없음(role="none presentation")
 </script></section><section data-markdown><script type="text/template">
 
 #### As-is
@@ -184,10 +460,25 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 </script></section><section data-markdown><script type="text/template">
 
 #### To-be
+</script></section></section><section ><section data-markdown><script type="text/template">
 
+### 페이지 네비게이션
+</script></section><section data-markdown><script type="text/template">
+
+#### As-is
+</script></section><section data-markdown><script type="text/template">
+
+#### To-be
 </script></section></section><section  data-markdown><script type="text/template">
 
-### 참고문서
+## 사용 환경
+
+브라우저: Chrome
+
+스크린리더: NVDA 2018.3.2
+</script></section><section  data-markdown><script type="text/template">
+
+## 참고문서
 <a href="https://www.w3.org/TR/html52/"  target="_blank">HTML 5.2</a><br />
 <a href="https://www.w3.org/TR/wai-aria/" target="_blank">WAI-ARIA 1.1</a><br />
 <a href="https://www.w3.org/TR/using-aria/" target="_blank">Using ARIA</a><br />
@@ -196,7 +487,8 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 <a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/" target="_blank">ARIA Landmarks Example</a>
 </script></section><section  data-markdown><script type="text/template">
 
-감사합니다.</script></section></div>
+
+## 감사합니다.</script></section></div>
         </div>
 
         <script src="lib/js/head.min.js"></script>
