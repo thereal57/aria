@@ -28,7 +28,7 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 --
 
-<a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank"><img src='../image/aria_01.jpg' alt='W3C wai aria page' /></a>
+<a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank"><img src='//img.danawa.com/img/etc/aria/w3c.jpg' alt='W3C wai aria page' /></a>
 
 ---
 
@@ -47,24 +47,18 @@ W3C에 의해 제정된 RIA의 웹 접근성 권고안
 
 --
 
-ARIA를 코드에 올바르게 통합하면<br />보조 기술 장치 사용자가<br />필요한 모든 정보를 얻을 수 있습니다.
+ARIA를 코드에 올바르게 통합하면<br />보조 기술 장치 사용자가<br />필요한 모든 정보를 얻을 수 있음
 
 --
 
-ARIA는 잘못된 마크업을 수정하고 HTML 격차를 해소하여 보조 기술(AT)을 사용하는 사용자들에게 보다 쉽게 다가갈 수 있도록 속성 모음을 정의합니다.
+ARIA는 잘못된 마크업을 수정하고 HTML 격차를 해소하여 보조 기술(AT)을 사용하는 사용자들에게 보다 쉽게 다가갈 수 있도록 속성 모음을 정의
 
 --
 
 
-역할(Role),속성(Property),상태(State)를 추가하여<br />보조기기(스크린리더)에 접근성 및 상호 운용성을 향상시킵니다.
+역할(Role),속성(Property),상태(State)를 추가하여<br />보조기기(스크린리더)에 접근성 및 상호 운용성 향상
 
 --
-
-<img src='/image/accessibleelement.png' alt='' />
-
-<span class="fragment">컴퓨터 → </span><span class="fragment">접근성API → </span><span class="fragment">스크린리더 → </span><span class="fragment">시각장애사용자</span>
-
----
 
 ## WAI-ARIA의 3대 요소
 
@@ -113,7 +107,7 @@ ARIA는 잘못된 마크업을 수정하고 HTML 격차를 해소하여 보조 �
 
 탭 목록, 탭, 탭 패널 (role="tablist / tab / tabpanel")
 
-<a href="markup.danawa.com/"><img src="https://github.com/thereal57/aria/blob/master/image/tab.jpg?raw=true" alt="tab UI" /></a>
+<a href="http://markup.danawa.com/aria/?loc=01_tab" target="_blank"><img src="//img.danawa.com/img/etc/aria/tab.jpg" alt="tab UI" /></a>
 
 --
 
@@ -166,7 +160,7 @@ ARIA는 잘못된 마크업을 수정하고 HTML 격차를 해소하여 보조 �
 
 대화상자 (role="dialog")
 
-<a href="markup.danawa.com/"><img src="https://github.com/thereal57/aria/blob/master/image/layerpopup.jpg?raw=true" alt="layer popup" /></a>
+<a href="//markup.danawa.com/aria/?loc=02_layerpopup" target="_blank"><img src="//img.danawa.com/img/etc/aria/layerpopup.jpg" alt="layer popup" /></a>
 
 --
 
@@ -311,7 +305,7 @@ ARIA는 잘못된 마크업을 수정하고 HTML 격차를 해소하여 보조 �
 추가적인 설명문 제공<br />
 (aria-describedby=" ID reference list ")
 
-<img src="/markdown-export/image/idpasswd.jpg" alt="id / password" />
+<a href="//markup.danawa.com/aria/?loc=03_idpasswd" target="_blank"><img src="//img.danawa.com/img/etc/aria/idpasswd.jpg" alt="id / password" /></a>
 
 --
 
@@ -361,119 +355,129 @@ PW  편집창  보호됨  <mark>6~16자 영문 대 소문자, 숫자, 특수문�
 
 ---
 
-### form label
-
-실시간 (aria-live=" polite ")
-
-<img src="/markdown-export/image/form.jpg" alt="form label" />
-
---
-
-#### As-is
-
-<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;form method="post" id="demo_register_form_noaria" novalidate&gt;
-	&lt;!-- 레이블 --&gt;
-	&lt;label for="register_id_noaria" class="control-label"&gt;아이디&lt;/label&gt;
-	&lt;!-- 입력 시 알아야 할 정보 --&gt;
-	&lt;span id="id_info_noaria" class="text-info"&gt;영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.&lt;/span&gt;
-	&lt;!-- 사용자 입력 필드 --&gt;
-	&lt;input class="form-control" type="text" name="register_id_noaria" id="register_id_noaria" ..&gt;
-	&lt;!-- 사용자 입력 정보가 유효하지 않을 경우, 화면에 표시하고 읽어 줄 주의 정보 --&gt;
-	&lt;span id="id_error_noaria" class="help-block"&gt;&lt;/span&gt;
-&lt;/form&gt;</code></pre>
-
-<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
-<pre class="fragment" style="max-height:200px;overflow-y:auto;">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.
-아이디
-
-<small>/*****  키보드 한/영 변경 *****/ </small>
-영어
-<small>/*****  키보드 입력 *****/ </small>
-t
-e
-s
-t
-<small>/*****  키보드 한/영 변경 *****/ </small>
-한글
-<small>/*****  키보드 입력 *****/ </small>
-테
-스
-트
-<small>/*****  특수문자 입력 *****/ </small>
-!</pre>
-
---
-
-#### To-be
-
-<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;form method="post" id="demo_register_form" novalidate <span class="fragment">aria-live="polite</span>"&gt;
-	&lt;!-- 레이블 --&gt;
-	&lt;label for="register_id" class="control-label"&gt;아이디&lt;/label&gt;
-	&lt;!-- 입력 시 알아야 할 정보 --&gt;
-	&lt;span id="id_info" class="text-info"&gt;영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.&lt;/span&gt;
-	&lt;!-- 사용자 입력 필드 --&gt;
-	&lt;input class="form-control" type="text" name="register_id" id="register_id"
-		<span class="fragment">aria-describedby="id_info/id_error"
-		aria-required="true"
-		aria-invalid="false/true"</span>
-		..
-		&gt;
-	&lt;!-- 사용자 입력 정보가 유효하지 않을 경우, 화면에 표시하고 읽어 줄 주의 정보 --&gt;
-	&lt;span role="alert" id="id_error" class="help-block"&gt;&lt;/span&gt;
-&lt;/form&gt;</code></pre>
-
-<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
-<pre class="fragment" style="max-height:200px;overflow-y:auto;">아이디  편집창  필요함  영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력.
-
-<small>/*****  키보드 한/영 변경 *****/ </small>
-영어
-
-<small>/*****  입력문구 알림 *****/ </small>
-<mark>영문자, 숫자, _만 입력 가능(최소 3자)</mark>
-t
-e
-s
-t
-
-<small>/*****  키보드 한/영 변경 *****/ </small>
-한글
-
-테
-<small>/*****  입력문구 알림 *****/ </small>
-<mark>한글이 포함되면 안됨 </mark>
-스
-트
-
-!
-<small>/*****  입력문구 알림 *****/ </small>
-<mark>특수 문자는 _ 만 가능. (#,@,!,$,%,^,&,*,<,>,(,),-,=,+ 사용하면 안됨) </mark></pre>
-
----
-
 ### 이미지형 게시판
 
 의미 없음(role="none presentation")
 
+<a href="//markup.danawa.com/aria/?loc=04_board" target="_blank"><img src="//img.danawa.com/img/etc/aria/board.jpg" alt="board" /></a>
+
 --
 
 #### As-is
 
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;ul class="news_list"&gt;
+    &lt;li class="news_row"&gt;
+        &lt;div class="thumb"&gt;
+            &lt;a href=""&gt;
+                &lt;img src="http://img.danawa.com/images/attachFiles/4/710/3709001_7.png?1535000163342" 
+				alt="첫번째 뉴스 이미지" /&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="info"&gt;
+            &lt;a href=""&gt;
+                &lt;div&gt;
+                    &lt;strong&gt;첫번째 뉴스 제목&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class="desc font_dotum"&gt;첫번째 뉴스 설명글입니다.&lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;"><small>/***** 링크내의 불필요한 중복(이미지)정보 안내 *****/ </small>
+<mark>방문함  링크</mark>
+<mark>그래픽</mark>
+<mark>첫번째 뉴스 이미지</mark>
+방문함  링크
+첫번째 뉴스 제목
+방문함  링크
+첫번째 뉴스 설명글입니다</pre>
 
 --
 
 #### To-be
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;ul class="news_list"&gt;
+    &lt;li class="news_row"&gt;
+        &lt;div class="thumb"&gt;
+            &lt;a href="" <span class="fragment"><mark>aria-hidden="true" tabindex="-1"</mark></span>&gt;
+                &lt;img src="http://img.danawa.com/images/attachFiles/4/710/3709001_7.png?1535000163342" 
+				alt="첫번째 뉴스 이미지" 
+				<span class="fragment"><mark>role="presentation"</mark></span>
+                /&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="info"&gt;
+            &lt;a href=""&gt;
+                &lt;div&gt;
+                    &lt;strong&gt;첫번째 뉴스 제목&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class="desc font_dotum"&gt;첫번째 뉴스 설명글입니다.&lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;"><mark>/***** 링크내의 불필요한 중복(이미지)정보 안내안함 *****/ </mark>
+방문함  링크
+첫번째 뉴스 제목
+방문함  링크
+첫번째 뉴스 설명글입니다.</pre>
 
 ---
 
-### 페이지 네비게이션
+### 페이지 내비게이션
+(role="navigation")
+
+<a href="//markup.danawa.com/aria/?loc=04_board" target="_blank"><img src="http://timg.danawa.com/img/etc/aria/pagination.jpg" alt="pagination" /></a>
 
 --
 
 #### As-is
 
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;ul class="pagination"&gt;
+    &lt;li class="active"&gt;&lt;a href="#"&gt;&lt;span&gt;현재 페이지&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;">목록  항목 수 3개
+링크
+1
+링크
+2
+링크
+3</pre>
+
 --
 
 #### To-be
+
+
+<pre><code data-trim data-noescape style="max-height:300px;font-weight:bold">&lt;div <span class="fragment"><mark>role="navigation" aria-label="페이지 탐색 내비게이션"</mark></span>&gt;
+&lt;ul class="pagination"&gt;
+    &lt;li class="active"&gt;&lt;a href="#"&gt;&lt;span&gt;현재 페이지&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p class="fragment" style="font-size:0.7em">스크린리더기 출력내용</p>
+<pre class="fragment" style="max-height:200px;overflow-y:auto;"><small>/*****  페이지 내비게이션 안내 *****/ </small>
+<mark>페이지 탐색 내비게이션 navigation 랜드마크 </mark>
+목록  항목 수 3개
+링크
+1
+링크
+2
+링크
+3</pre>
+
+--
+<img src="//img.danawa.com/img/etc/aria/pagination02.jpg" alt="landmark" />
+<p>콘텐츠가 많은 페이지에서 쉽게 이동할수 있게 스크린리더기에서 편의 제공</p>
 
 ---
 
